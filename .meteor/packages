@@ -19,3 +19,6 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 meteorhacks:flow-layout
 meteorhacks:flow-router
 mrt:bootstrap-3
+accounts-password
+alanning:roles
+fortawesome:fontawesome
