@@ -5,6 +5,16 @@ FlowRouter.route(['/','/home'],{
   }
 });
 
+FlowRouter.route('/admin',{
+    action:function(){
+        if(Roles.userIsInRole(Meteor.userId(),'admin')) {
+            FlowLayout.render('layout', {sidebar: '', main: 'admin', cart: ''});
+        } else{
+            FlowLayout.render('layout', {sidebar: '', main: 'unauthorized', cart: ''});
+        }
+    }
+});
+
 FlowRouter.route('/register', {
   action:function(){
     FlowLayout.render('layout', {sidebar:'', main:'register', cart:''});
@@ -14,6 +24,22 @@ FlowRouter.route('/register', {
 FlowRouter.route('/signin', {
   action:function(){
     FlowLayout.render('layout', {sidebar:'', main:'signin', cart:''});
+  }
+});
+
+FlowRouter.route('/profile', {
+  action:function(){
+    FlowLayout.render('layout', {sidebar:'', main:'profile', cart:''});
+  }
+});
+
+FlowRouter.route('/signout', {
+  action:function(){
+    Meteor.logout(function(err){
+      if(!err){
+        FlowRouter.go('/signin');
+      }
+    })
   }
 });
 
