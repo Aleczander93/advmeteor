@@ -6,8 +6,12 @@ FlowRouter.route(['/','/home'],{
 });
 
 FlowRouter.route('/admin',{
-  action:function(){
-    FlowLayout.render('layout', {sidebar: '', main: 'admin', cart: ''});
+    action:function(){
+        if(Roles.userIsInRole(Meteor.userId(),'admin')) {
+            FlowLayout.render('layout', {sidebar: '', main: 'admin', cart: ''});
+        } else{
+            FlowLayout.render('layout', {sidebar: '', main: 'unauthorized', cart: ''});
+        }
     }
 });
 
