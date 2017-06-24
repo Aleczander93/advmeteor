@@ -17,6 +17,12 @@ FlowRouter.route('/signin', {
   }
 });
 
+FlowRouter.route('/profile', {
+  action:function(){
+    FlowLayout.render('layout', {sidebar:'', main:'profile', cart:''});
+  }
+});
+
 FlowRouter.route('/signout', {
   action:function(){
     Meteor.logout(function(err){

@@ -22,3 +22,5 @@ mrt:bootstrap-3
 accounts-password
 alanning:roles
 fortawesome:fontawesome
+cfs:standard-packages
+cfs:gridfs
