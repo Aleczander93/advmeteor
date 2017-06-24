@@ -5,6 +5,12 @@ FlowRouter.route(['/','/home'],{
   }
 });
 
+FlowRouter.route('/admin',{
+  action:function(){
+    FlowLayout.render('layout', {sidebar: '', main: 'admin', cart: ''});
+    }
+});
+
 FlowRouter.route('/register', {
   action:function(){
     FlowLayout.render('layout', {sidebar:'', main:'register', cart:''});
