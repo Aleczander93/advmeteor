@@ -1,4 +1,7 @@
 FlowRouter.route(['/','/home'],{
+  subscriptions:function(){
+    Meteor.subscribe('category');
+  },
   action:function(){
     console.log('Running Action to render templates into layouts.');
     FlowLayout.render('layout', {sidebar:'sidebar', main:'home', cart:'cart'});
@@ -52,8 +55,7 @@ FlowRouter.route('/checkout', {
 
 FlowRouter.route('/category/:categoryName',{
   subscriptions:function(params){
-    console.log("SUBSCRIBE",params);
-    //make sure subscriptions exist
+    Meteor.subscribe('category');
   },
   triggersEnter:function(params){
     console.log('ENTER',params);
