@@ -1,7 +1,14 @@
 <template name="sidebar">
-  <ul class="list-unstyled side-nav">
-    {{#each categories}}
-      <li class="cursive huge"><a href="/category/{{name}}">{{name}}</a></li>
-      {{/each}}
-  </ul>
+
+      <div class="row">
+          <div class="col-md-12 hidden-sm hidden-xs">
+              <ul class="list-unstyled side-nav tree" id="tree1">
+                  {{#each categories}}
+                      <li><a href="/category/{{name}}">{{name}}</a></li>
+                  {{/each}}
+              </ul>
+          </div>
+
+      </div>
+      
 </template>
