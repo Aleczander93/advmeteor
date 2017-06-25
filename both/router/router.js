@@ -1,6 +1,6 @@
 FlowRouter.route(['/','/home'],{
   subscriptions:function(){
-    Meteor.subscribe('category');
+    this.register('categoriesList',Meteor.subscribe('category'));
   },
   action:function(){
     console.log('Running Action to render templates into layouts.');
@@ -9,6 +9,9 @@ FlowRouter.route(['/','/home'],{
 });
 
 FlowRouter.route('/admin',{
+  subscriptions:function(){
+    this.register('categoriesList',Meteor.subscribe('category'));
+  },
     action:function(){
         if(Roles.userIsInRole(Meteor.userId(),'admin')) {
             FlowLayout.render('layout', {sidebar: '', main: 'admin', cart: ''});
@@ -42,7 +45,7 @@ FlowRouter.route('/signout', {
       if(!err){
         FlowRouter.go('/signin');
       }
-    })
+    });
   }
 });
 
