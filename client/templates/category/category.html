@@ -1,7 +1,10 @@
 <template name="category">
-  <div class='page-header'>
     <h1>{{categoryName}}</h1>
-  </div>
+  {{#if Template.subscriptionsReady}}
+    {{#each products}}
+      {{>product}}
+      {{/each}}
+  {{/if}}
 </template>
 <template name='categoryAdmin'>
   <div class="col-md-12">
