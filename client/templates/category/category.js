@@ -1,11 +1,14 @@
-
+Template.category.onCreated(function(){
+  this.subscribe('products');
+});
 
 Template.category.helpers({
   categoryName:function(){
     return FlowRouter.getParam('categoryName');
   },
   products:function(){
-    return Product.find();
+    var categoryId = Category.findOne({name:FlowRouter.getParam('categoryName')})._id;
+    return Product.find({categoryId:categoryId});
   }
 });
 
