@@ -1,6 +1,3 @@
-Meteor.startup(function(){
-  Product._ensureIndex({'categoryId':1});
-});
 Meteor.publish('products', function(){
   return Product.find({});
 });
