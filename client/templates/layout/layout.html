@@ -8,7 +8,9 @@
       {{>Template.dynamic template=main}}
     </div>
     <div class="col-md-3">
+      {{#if currentUser}}
       {{>Template.dynamic template=cart}}
+      {{/if}}
     </div>
   </div>
 </template>

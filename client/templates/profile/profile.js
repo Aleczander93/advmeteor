@@ -11,7 +11,7 @@ Template.profile.events({
             Meteor.users.update(userId,{$set:imageurl});
           },2000);
         }
-      })
-    })
+      });
+    });
   }
 });

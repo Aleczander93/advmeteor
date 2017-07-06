@@ -1,6 +1,14 @@
 Template.cart.helpers({
-  cartitems:function(){
-    var item = {description:'<b>Great</b> Scent', product:'Coco Puffs', qty:2, price:12.00};
-    return [item];
-  }
+    cartitems:function(){
+        return Cart.find({});
+    }
+});
+Template.cart.events({
+    'click .checkOutBtn':function(evt,tmpl){
+        Session.set('isCheckingOut',true);
+    },
+    'click #delFromCart':function(evt,tmpl){
+        console.log(this._id);
+        Meteor.call('Cart.remove',this._id);
+    }
 });
